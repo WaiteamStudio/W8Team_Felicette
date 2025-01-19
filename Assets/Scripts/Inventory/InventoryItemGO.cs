@@ -7,19 +7,14 @@ using UnityEngine.EventSystems;
 public class InventoryItemGO : MonoBehaviour, ICollectibleItem
 {
     [SerializeField]
-    InventoryItemSO notesItemSO;
+    public InventoryItemSO notesItemSO;
     public UnityEvent<InventoryItemSO> CollectStart;
     public UnityEvent<InventoryItemSO> CollectEnd;
     private void Awake()
     {
         
     }
-    private void OnCollect_Start()
-    {
-        Debug.Log($"Предмет {notesItemSO.name} начинает собираться");
-        OnCollectEnd();
-    }
-    private void OnCollectEnd()
+    public void OnCollectEnd()
     {
         CollectEnd?.Invoke(notesItemSO);
         Debug.Log($"Предмет {notesItemSO.name} собран");
@@ -27,8 +22,8 @@ public class InventoryItemGO : MonoBehaviour, ICollectibleItem
     }
     public void Collect()
     {
+        Debug.Log($"Предмет {notesItemSO.name} начинает собираться");
         CollectStart.Invoke(notesItemSO);
-        OnCollect_Start();
     }
     public InventoryItemSO GetNotesItemsSO()
     {

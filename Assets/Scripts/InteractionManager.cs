@@ -96,7 +96,7 @@ public class InteractionManager : MonoBehaviour
         InventoryItemGO TargetObject = selectedCollider.GetComponent<InventoryItemGO>();
         if (TargetObject != null)
         {
-            InventoryItemSO  itemSO = TargetObject.GetNotesItemsSO();
+            InventoryItemSO itemSO = TargetObject.GetNotesItemsSO();
             selectedItem.Use(itemSO);
         }
         else

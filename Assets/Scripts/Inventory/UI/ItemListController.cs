@@ -19,12 +19,11 @@ public class ItemListController
     //по требованию
     public void AddItem(InventoryItemSO item)
     {
-        Debug.Log("добавлен");
         if (!AvailableNotesItems.Contains(item))
         {
             AvailableNotesItems.Add(item);
             m_ListView.Rebuild();
-            Debug.Log($"Предмет {item.name} добавлен");
+            Debug.Log($"Предмет {item.name} добавлен в UI");
         }
         else
         {

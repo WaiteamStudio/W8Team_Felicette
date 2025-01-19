@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 726120563}
   - component: {fileID: 726120564}
   m_Layer: 0
-  m_Name: MouseClickCollector
+  m_Name: InteractionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
+  selectedItem: {fileID: 0}
 --- !u!1 &924380208
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +770,8 @@ GameObject:
   - component: {fileID: 2037926216}
   - component: {fileID: 2037926219}
   - component: {fileID: 2037926220}
+  - component: {fileID: 2037926222}
+  - component: {fileID: 2037926221}
   m_Layer: 0
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -938,6 +941,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 169
   eraseRenderer: 1
+--- !u!95 &2037926221
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037926214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d06c467c0363f9a4a86ccb79fd4b4335, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2037926222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037926214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef745e1a3b92434a8ece01550da2b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2082099010
 GameObject:
   m_ObjectHideFlags: 0
