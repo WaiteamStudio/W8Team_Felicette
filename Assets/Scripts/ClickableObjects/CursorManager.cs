@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D defaultCursor; 
+    [SerializeField] private Texture2D defaultCursor;
     [SerializeField] private LayerMask interactableLayer;
 
     private Vector2 defaultCursorHotspot;
@@ -19,26 +19,53 @@ public class CursorManager : MonoBehaviour
 
     private void Update()
     {
+        if (!PauseMenu.isPaused)
+        {
+            HandleCursorChange();
+            HandleInteraction();
+        }
+        else if (PauseMenu.isPaused)
+        {
+            SetCursor(defaultCursor, defaultCursorHotspot);
+        }
+    }
+
+    private void HandleCursorChange()
+    {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 0f, interactableLayer);
 
         if (hit.collider != null)
         {
-            var interactable = hit.collider.GetComponent<IInteractable>();
+            var interactable = hit.collider.GetComponent<ICursor>();
             if (interactable != null)
             {
-                var cursor = interactable.CursorTexture ?? defaultCursor;
-                var hotspot = cursor != defaultCursor
-                    ? new Vector2(cursor.width / 2, cursor.height / 2)
-                    : defaultCursorHotspot;
-
-                SetCursor(cursor, hotspot);
+                SetCursor(interactable.CursorTexture, new Vector2(interactable.CursorTexture.width / 2, interactable.CursorTexture.height / 2));
                 return;
             }
         }
 
         SetCursor(defaultCursor, defaultCursorHotspot);
+    }
+
+    private void HandleInteraction()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 0f, interactableLayer);
+
+            if (hit.collider != null)
+            {
+                var interactable = hit.collider.GetComponent<ICursor>();
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
+        }
     }
 
     private void SetCursor(Texture2D cursor, Vector2 hotspot)
