@@ -1,5 +1,5 @@
 using UnityEngine;
-//using DialogueEditor;
+using DialogueEditor;
 
 public class TriggerMovement : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class TriggerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!PauseMenu.isPaused) //&& !ConversationManager.Instance.IsConversationActive
+            if (!PauseMenu.isPaused && !ConversationManager.Instance.IsConversationActive)
             {
                 GameEvents.current.MoveTo();
             }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using DialogueEditor;
+using DialogueEditor;
 
 public class ObjectHighlighter : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class ObjectHighlighter : MonoBehaviour
 
     private void Update()
     {
-        if (!PauseMenu.isPaused) //&& !ConversationManager.Instance.IsConversationActive
+        if (!PauseMenu.isPaused && !ConversationManager.Instance.IsConversationActive)
         {
             if (Input.GetKey(KeyCode.F))
             {
