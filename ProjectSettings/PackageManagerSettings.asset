@@ -25,10 +25,15 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
+<<<<<<< Updated upstream
+=======
+    m_ConfigSource: 0
+>>>>>>> Stashed changes
   m_UserSelectedRegistryName: 
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_ErrorMessage: 
+<<<<<<< Updated upstream
     m_Original:
       m_Id: 
       m_Name: 
@@ -42,3 +47,8 @@ MonoBehaviour:
     m_Scopes:
     - 
     m_SelectedScopeIndex: 0
+=======
+    m_UserModificationsInstanceId: -854
+    m_OriginalInstanceId: -858
+  m_LoadAssets: 0
+>>>>>>> Stashed changes
